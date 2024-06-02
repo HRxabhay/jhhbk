@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}Posts - My Flask App{% endblock %}
+<link rel="stylesheet" href="../static/style.css">
+{% block content %}
+<h1>Posts</h1>
+<div class="grid-container">
+    {% for post in posts %}
+    <div class="grid-item">
+        <h2><a href="{{ url_for(post['filename'] + '_so') }}">{{ post['Name'] }}</a></h2>
+        <img src="{{ post['Thumbimage_src'] }}" alt="{{ post['Name'] }}">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+    .grid-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+    }
+    .grid-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .grid-item h2 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+    .grid-item a {
+        text-decoration: none;
+        color: #333;
+    }
+    .grid-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

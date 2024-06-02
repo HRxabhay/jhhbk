@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+<link rel="stylesheet" href="../static/style.css">
+{% block content %}
+<h1>{{ data['Name'] }}</h1>
+<img src="{{ data['Thumbimage_src'] }}" alt="{{ data['Name'] }}">
+<p>{{ data['Synopsis'] }}</p>
+<p>{{ data['Description'] }}</p>
+<p><strong>Genre:</strong> {{ data['Genre'] }}</p>
+
+<h2>Links</h2>
+<ul>
+    <li><a target="if" href="{{ data['Filemoon'] }}">Filemoon</a></li>
+    <li><a target="if" href="{{ data['Streamsb'] }}">Streamsb</a></li>
+    <li><a target="if" href="{{ data['Streamhd'] }}">Streamhd</a></li>
+    <li><a target="if" href="{{ data['Gohost'] }}">Gohost</a></li>
+    <li><a target="if" href="{{ data['Host5'] }}">Host5</a></li>
+    <li><a target="if" href="{{ data['Namehost'] }}">Namehost</a></li>
+</ul>
+
+<iframe name="if" width="600" height="400" style="border:none;"></iframe>
+{% endblock %}
